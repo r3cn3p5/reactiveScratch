@@ -1,9 +1,7 @@
 package com.p31prime.reactiveScratch;
 
-import org.springframework.stereotype.Component;
-
-@APRoute
-public class ExampleRoute1 implements Route {
+@APRouteComponent
+public class ExampleRoute1 implements APRoute {
 
 
     @Override

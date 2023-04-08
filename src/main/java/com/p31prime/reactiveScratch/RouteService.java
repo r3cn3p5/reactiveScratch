@@ -4,23 +4,31 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 @Service
 public class RouteService {
 
-
+    List<APRoute> registeredRoutes;
 
     @EventListener(ApplicationReadyEvent.class)
     public void applicationReady(ApplicationReadyEvent event) {
-        Map<String,Object> map = event.getApplicationContext().getBeansWithAnnotation(APRoute.class);
 
-        for (String keys : map.keySet())
+        Map<String,APRoute> map = event.getApplicationContext().getBeansOfType(APRoute.class);
+        for (APRoute values : map.values())
         {
-            System.out.println(keys);
+            System.out.println("We have the route: " + values.getName());
         }
+
+        registeredRoutes = map.values().stream().toList();
     }
 
+    public List<APRoute> getRoutes() {
+
+        return registeredRoutes;
+    }
 
 }
 

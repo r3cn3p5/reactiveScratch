@@ -1,7 +1,7 @@
 package com.p31prime.reactiveScratch;
 
-@APRoute
-public class ExampleRoute2 implements Route {
+@APRouteComponent
+public class ExampleRoute2 implements APRoute {
 
 
     @Override

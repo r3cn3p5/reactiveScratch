@@ -1,21 +1,6 @@
 package com.p31prime.reactiveScratch;
 
-import org.springframework.core.annotation.AliasFor;
-import org.springframework.stereotype.Component;
-
-import java.lang.annotation.*;
-
-@Target(ElementType.TYPE)
-@Documented
-@Component
-@Retention(RetentionPolicy.RUNTIME)
-public @interface APRoute {
-
-    @AliasFor(annotation = Component.class)
-    String value() default "";
-
-
-
+public interface APRoute {
+    public String getName();
+    public void execute();
 }
-
-
