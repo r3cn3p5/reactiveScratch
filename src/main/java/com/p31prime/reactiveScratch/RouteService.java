@@ -15,18 +15,13 @@ public class RouteService {
 
     @EventListener(ApplicationReadyEvent.class)
     public void applicationReady(ApplicationReadyEvent event) {
-
         Map<String,APRoute> map = event.getApplicationContext().getBeansOfType(APRoute.class);
-        for (APRoute values : map.values())
-        {
-            System.out.println("We have the route: " + values.getName());
-        }
-
         registeredRoutes = map.values().stream().toList();
+
+        registeredRoutes.stream().forEach( s -> System.out.println("We have the route: " + s.getName()));
     }
 
     public List<APRoute> getRoutes() {
-
         return registeredRoutes;
     }
 

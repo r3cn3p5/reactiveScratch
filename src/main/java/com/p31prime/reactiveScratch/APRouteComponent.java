@@ -14,8 +14,6 @@ public @interface APRouteComponent {
     @AliasFor(annotation = Component.class)
     String value() default "";
 
-
-
 }
 
 
