@@ -1,6 +1,9 @@
 package com.p31prime.reactiveScratch;
 
-public interface APRoute {
+import reactor.core.publisher.Mono;
+
+public interface APRoute<T,S> {
     public String getName();
-    public void execute();
+    public Mono<S> execute(T request);
+
 }
